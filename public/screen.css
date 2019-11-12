@@ -10,3 +10,15 @@ body {
   margin: 0;
   min-height: 100%;
 }
+.header {
+  display: flex;
+  justify-content: center;
+}
+.input {
+  display: flex;
+  justify-content: center;
+}
+.weather {
+  display: flex;
+  justify-content: center;
+}
