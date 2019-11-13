@@ -1,8 +1,8 @@
 const getWeather = async () => {
-  const city = document.querySelector('.zip').value
+  const place = document.querySelector('.zip').value
   const response = await fetch(
     'https://api.openweathermap.org/data/2.5/weather?q=' +
-      city +
+      place +
       '&appid=658ce6b7e5a6aba1b49ed129b567beba&units=imperial'
   )
   const weatherData = await response.json()
@@ -17,8 +17,10 @@ const getWeather = async () => {
   )
   if (weatherData.main.temp > 80) {
     document.querySelector('.description').textContent = 'WOW HOT!'
-  } else if (weatherData.main.temp < 80) {
+  } else if (weatherData.main.temp < 80 && weatherData.main.temp > 40) {
     document.querySelector('.description').textContent = 'Not so bad'
+  } else if (weatherData.main.temp < 40) {
+    document.querySelector('.description').textContent = 'Put a Coat On!'
   }
 }
 
